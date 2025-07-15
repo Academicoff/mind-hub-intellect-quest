@@ -10,15 +10,11 @@ export const questions: Question[] = [
   },
   {
     id: 2,
-    type: 'text',
-    question: 'If all Roses are flowers and some flowers fade quickly, which statement is necessarily true?',
-    options: [
-      'All roses fade quickly',
-      'Some roses are flowers', 
-      'No roses fade quickly',
-      'Some flowers are not roses'
-    ],
-    correctAnswer: 1
+    type: 'text-with-image',
+    question: 'Looking at this pattern, what comes next in the logical sequence?',
+    image: 'photo-1518770660439-4636190af475',
+    options: ['Pattern A', 'Pattern B', 'Pattern C', 'Pattern D'],
+    correctAnswer: 2
   },
   {
     id: 3,
@@ -29,10 +25,15 @@ export const questions: Question[] = [
   },
   {
     id: 4,
-    type: 'text',
-    question: 'A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?',
-    options: ['$0.10', '$0.05', '$0.15', '$0.20'],
-    correctAnswer: 1
+    type: 'image',
+    question: 'Which of these images shows the most efficient workspace setup?',
+    images: [
+      'photo-1649972904349-6e44c42644a7',
+      'photo-1488590528505-98d2b5aba04b',
+      'photo-1498050108023-c5249f4df085',
+      'photo-1483058712412-4245e9b90334'
+    ],
+    correctAnswer: 2
   },
   {
     id: 5,
@@ -43,17 +44,23 @@ export const questions: Question[] = [
   },
   {
     id: 6,
-    type: 'text',
-    question: 'What is the next number in this pattern: 1, 1, 2, 3, 5, 8, ?',
+    type: 'text-with-image',
+    question: 'Based on this visual pattern, what is the next number in the sequence: 1, 1, 2, 3, 5, 8, ?',
+    image: 'photo-1461749280684-dccba630e2f6',
     options: ['11', '13', '15', '16'],
     correctAnswer: 1
   },
   {
     id: 7,
-    type: 'text',
-    question: 'If you rearrange the letters "CIFAIPC" you would have the name of a/an:',
-    options: ['City', 'Ocean', 'Animal', 'Country'],
-    correctAnswer: 1
+    type: 'image',
+    question: 'Which image best represents advanced problem-solving and logical thinking?',
+    images: [
+      'photo-1526374965328-7f61d4dc18c5',
+      'photo-1487058792275-0ad4aaf24ca7',
+      'photo-1581091226825-a6a2a5aee158',
+      'photo-1605810230434-7631ac76ec81'
+    ],
+    correctAnswer: 0
   },
   {
     id: 8,
@@ -64,16 +71,24 @@ export const questions: Question[] = [
   },
   {
     id: 9,
-    type: 'text',
-    question: 'Which number should replace the question mark: 3, 7, 11, 15, 19, ?',
+    type: 'text-with-image',
+    question: 'Analyzing this computer interface, which number should replace the question mark: 3, 7, 11, 15, 19, ?',
+    image: 'photo-1487058792275-0ad4aaf24ca7',
     options: ['21', '23', '25', '27'],
     correctAnswer: 1
   },
   {
     id: 10,
-    type: 'text',
-    question: 'In a certain code, COMPUTER is written as RFUVQNPC. How is MEDICINE written in that code?',
-    options: ['MFEDJJOE', 'EOJDVFNP', 'NFEJDJOF', 'MEDICINE'],
+    type: 'image',
+    question: 'Which workspace setup demonstrates the highest level of technological proficiency?',
+    images: [
+      'photo-1461749280684-dccba630e2f6',
+      'photo-1526374965328-7f61d4dc18c5',
+      'photo-1483058712412-4245e9b90334',
+      'photo-1488590528505-98d2b5aba04b',
+      'photo-1498050108023-c5249f4df085',
+      'photo-1605810230434-7631ac76ec81'
+    ],
     correctAnswer: 1
   }
 ];

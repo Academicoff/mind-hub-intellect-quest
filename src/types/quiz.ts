@@ -6,6 +6,15 @@ export interface TextQuestion {
   correctAnswer: number;
 }
 
+export interface TextWithImageQuestion {
+  id: number;
+  type: 'text-with-image';
+  question: string;
+  image: string;
+  options: string[];
+  correctAnswer: number;
+}
+
 export interface ImageQuestion {
   id: number;
   type: 'image';
@@ -14,7 +23,7 @@ export interface ImageQuestion {
   correctAnswer: number;
 }
 
-export type Question = TextQuestion | ImageQuestion;
+export type Question = TextQuestion | TextWithImageQuestion | ImageQuestion;
 
 export interface QuizState {
   currentQuestion: number;

@@ -61,6 +61,32 @@ export const QuizQuestion = ({
                 </div>
               ))}
             </div>
+          ) : question.type === 'text-with-image' ? (
+            <div>
+              <div className="mb-6 flex justify-center">
+                <img 
+                  src={`https://images.unsplash.com/${question.image}?w=400&h=200&fit=crop`} 
+                  alt="Question illustration"
+                  className="max-w-full h-48 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="grid gap-4">
+                {question.options.map((option, index) => (
+                  <div
+                    key={index}
+                    className={`option-card ${selectedAnswer === index ? 'selected' : ''}`}
+                    onClick={() => onAnswer(index)}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center text-sm font-semibold">
+                        {String.fromCharCode(65 + index)}
+                      </div>
+                      <span className="text-lg">{option}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
             <div className="grid md:grid-cols-2 gap-6">
               {question.images.map((image, index) => (
@@ -71,7 +97,7 @@ export const QuizQuestion = ({
                 >
                   <div className="text-center">
                     <img 
-                      src={image} 
+                      src={`https://images.unsplash.com/${image}?w=300&h=200&fit=crop`} 
                       alt={`Option ${String.fromCharCode(65 + index)}`}
                       className="w-full h-32 object-cover rounded-lg mb-3"
                     />
