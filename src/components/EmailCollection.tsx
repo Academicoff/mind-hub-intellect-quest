@@ -7,9 +7,11 @@ import { useToast } from '@/hooks/use-toast';
 
 interface EmailCollectionProps {
   onSubmit: (email: string, firstName?: string) => void;
+  iqScore: number;
+  category: string;
 }
 
-export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
+export const EmailCollection = ({ onSubmit, iqScore, category }: EmailCollectionProps) => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,13 +31,31 @@ export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
     }
 
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    onSubmit(email, firstName);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+
+    try {
+      await fetch("/api/send-iq.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName,
+          iqScore,
+          category
+        })
+      });
+
+      onSubmit(email, firstName);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error sending IQ results:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send your results. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -75,10 +95,10 @@ export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
         <div className="text-center space-y-4">
           <Mail className="w-12 h-12 text-primary mx-auto" />
           <h1 className="text-3xl font-bold text-foreground">
-            Almost Done!
+            Почти готово!
           </h1>
           <p className="text-lg text-muted-foreground">
-            Enter your email to receive your detailed IQ test results
+            Введите свой адрес электронной почты, чтобы получить результаты теста IQ
           </p>
         </div>
 
@@ -86,7 +106,7 @@ export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium">
-                Email Address *
+                Адрес электронной почты *
               </Label>
               <Input
                 id="email"
@@ -101,14 +121,14 @@ export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
 
             <div className="space-y-2">
               <Label htmlFor="firstName" className="text-sm font-medium">
-                First Name (Optional)
+                Имя или Никнейм (необязательно)
               </Label>
               <Input
                 id="firstName"
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Enter your first name"
+                placeholder="Введите ваше имя"
                 className="bg-secondary border-border"
               />
             </div>
@@ -118,15 +138,15 @@ export const EmailCollection = ({ onSubmit }: EmailCollectionProps) => {
               disabled={isSubmitting}
               className="w-full bg-primary hover:bg-primary/90 py-3"
             >
-              {isSubmitting ? 'Sending Results...' : 'Get My IQ Results'}
+              {isSubmitting ? 'Отправка результатов...' : 'Получить результаты моего IQ теста'}
             </Button>
           </form>
 
           <div className="mt-6 pt-6 border-t border-border">
             <div className="text-xs text-muted-foreground space-y-1">
-              <p>✓ Your results will be sent instantly</p>
-              <p>✓ No spam, just your IQ analysis</p>
-              <p>✓ Your email is secure and never shared</p>
+              <p>✓ Ваши результаты будут отправленны мгновенно</p>
+              <p>✓ Никакого спама, только результаты IQ-теста</p>
+              <p>✓ Ваши данные защищены и никогда не будут переданы третьим лицам</p>
             </div>
           </div>
         </div>

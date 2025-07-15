@@ -17,6 +17,8 @@ export const Quiz = () => {
   const [showEmailCollection, setShowEmailCollection] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>();
 
+  const { iqScore, category } = calculateIQScore(quizState.score);
+
   const handleStart = () => {
     setHasStarted(true);
   };
@@ -54,8 +56,6 @@ export const Quiz = () => {
   };
 
   const handleEmailSubmit = async (email: string, firstName?: string) => {
-    const { iqScore, category } = calculateIQScore(quizState.score);
-    
     const result: UserResult = {
       email,
       firstName,
@@ -64,11 +64,9 @@ export const Quiz = () => {
       category
     };
 
-    // Here you would typically send this data to your backend
     console.log('Quiz Results:', result);
-    
-    // Simulate sending email with results
-    // In a real implementation, you'd call your email service API here
+
+    // Здесь больше не нужно, т.к. отправим в EmailCollection
   };
 
   if (!hasStarted) {
@@ -76,7 +74,13 @@ export const Quiz = () => {
   }
 
   if (showEmailCollection) {
-    return <EmailCollection onSubmit={handleEmailSubmit} />;
+    return (
+      <EmailCollection
+        onSubmit={handleEmailSubmit}
+        iqScore={iqScore}
+        category={category}
+      />
+    );
   }
 
   const currentQuestion = questions[quizState.currentQuestion];

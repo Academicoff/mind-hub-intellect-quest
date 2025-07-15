@@ -29,10 +29,10 @@ export const QuizQuestion = ({
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm text-muted-foreground">
-              Question {questionNumber} of {totalQuestions}
+              Вопрос {questionNumber} из {totalQuestions}
             </span>
             <span className="text-sm text-muted-foreground">
-              {Math.round(progress)}% Complete
+              {Math.round(progress)}% Выполнено
             </span>
           </div>
           <Progress value={progress} className="h-2" />
@@ -119,7 +119,7 @@ export const QuizQuestion = ({
             size="lg"
             className="px-8 py-3 bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {questionNumber === totalQuestions ? 'Finish Test' : 'Next Question'}
+            {questionNumber === totalQuestions ? 'Завершить тест' : 'Следующий вопрос'}
           </Button>
         </div>
       </div>

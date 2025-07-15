@@ -14,29 +14,29 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
             <Brain className="w-16 h-16 text-primary" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-            IQ Test
+            PokerHUB тест на IQ
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg mx-auto">
-            Test your intelligence with our scientifically designed assessment. 
-            Get your IQ score and detailed analysis delivered to your email.
+            Проверьте свой интеллект с помощью нашего научно разработанного теста. 
+            Получите оценку IQ и подробный анализ на свою электронную почту.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 my-12">
           <div className="iq-card text-center">
             <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-            <h3 className="font-semibold mb-2">10 Minutes</h3>
-            <p className="text-sm text-muted-foreground">Complete assessment</p>
+            <h3 className="font-semibold mb-2">10 Минут</h3>
+            <p className="text-sm text-muted-foreground">Полная оценка</p>
           </div>
           <div className="iq-card text-center">
             <Users className="w-8 h-8 text-primary mx-auto mb-3" />
-            <h3 className="font-semibold mb-2">10 Questions</h3>
-            <p className="text-sm text-muted-foreground">Carefully designed</p>
+            <h3 className="font-semibold mb-2">10 вопросов</h3>
+            <p className="text-sm text-muted-foreground">Тщательно продуманный тест</p>
           </div>
           <div className="iq-card text-center">
             <Award className="w-8 h-8 text-primary mx-auto mb-3" />
-            <h3 className="font-semibold mb-2">Detailed Results</h3>
-            <p className="text-sm text-muted-foreground">Sent to your email</p>
+            <h3 className="font-semibold mb-2">Точные результаты</h3>
+            <p className="text-sm text-muted-foreground">Моментальная отправка на email</p>
           </div>
         </div>
 
@@ -46,10 +46,10 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
             size="lg"
             className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
           >
-            Start IQ Test
+            Начать тест IQ
           </Button>
           <p className="text-sm text-muted-foreground">
-            Free • No registration required • Results via email
+            Бесплатно • Не требует регистрации • Моментальный результат на электронную почту
           </p>
         </div>
       </div>
