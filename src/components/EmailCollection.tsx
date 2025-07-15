@@ -65,23 +65,23 @@ export const EmailCollection = ({ onSubmit, iqScore, category }: EmailCollection
           <div className="space-y-4">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
             <h1 className="text-3xl font-bold text-foreground">
-              Results Sent!
+              Результат отправлен!
             </h1>
             <p className="text-lg text-muted-foreground">
-              Your IQ test results have been sent to <span className="text-primary font-semibold">{email}</span>
+              Твой результат IQ теста был отправлен на почту <span className="text-primary font-semibold">{email}</span>
             </p>
             <p className="text-sm text-muted-foreground">
-              Please check your inbox (and spam folder) for your detailed results and IQ score.
+              Пожалуйста проверь входящие сообщения (и спам папку) для получения результатов тестирования.
             </p>
           </div>
           
           <div className="iq-card">
-            <h3 className="font-semibold mb-3">What's Next?</h3>
+            <h3 className="font-semibold mb-3">Что дальше?</h3>
             <div className="text-left space-y-2 text-sm text-muted-foreground">
-              <p>• View your detailed IQ score and analysis</p>
-              <p>• Compare your results with global averages</p>
-              <p>• Get personalized recommendations for cognitive improvement</p>
-              <p>• Share your results with friends and family</p>
+              <p>• Оставайся подписанным на телеграм, чтобы быть в курсе обновлений</p>
+              <p>• В ближайшее время мы запустим Покерный канал и платформу</p>
+              <p>• Участвуй в наших активностях и используй наши инструменты</p>
+              <p>• Достигай успехов и становись покер-про</p>
             </div>
           </div>
         </div>
