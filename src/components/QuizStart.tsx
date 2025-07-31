@@ -18,7 +18,7 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg mx-auto">
             Проверьте свой интеллект с помощью нашего научно разработанного теста. 
-            Получите оценку IQ и подробный анализ на свою электронную почту.
+            Получите оценку IQ и подробный анализ в телеграм.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
           <div className="iq-card text-center">
             <Award className="w-8 h-8 text-primary mx-auto mb-3" />
             <h3 className="font-semibold mb-2">Точные результаты</h3>
-            <p className="text-sm text-muted-foreground">Моментальная отправка на email</p>
+            <p className="text-sm text-muted-foreground">Моментальная отправка в telegram</p>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
             Начать тест IQ
           </Button>
           <p className="text-sm text-muted-foreground">
-            Бесплатно • Не требует регистрации • Моментальный результат на электронную почту
+            Бесплатно • Не требует регистрации • Моментальный результат в телеграм
           </p>
         </div>
       </div>

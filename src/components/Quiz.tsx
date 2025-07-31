@@ -104,7 +104,7 @@ export const Quiz = () => {
     };
 
     // отправляем финальный пакет (finished = 1)
-    await fetch("/api/send-iq.php", {
+    const response = await fetch("/api/send-iq.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -118,9 +118,23 @@ export const Quiz = () => {
         category,
       }),
     });
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to save quiz results');
+    }
+
+    const data = await response.json();
+    console.log('handleEmailSubmit response:', data); // Логирование ответа API
+
+    const { id } = data;
+    if (!id) {
+      throw new Error('API did not return a valid id');
+    }
 
     console.log("Quiz Results:", result);
     // здесь можно показать «спасибо» или перейти на страницу результатов
+    return id; // Возвращаем id для EmailCollection
   };
 
   /* =========================================
