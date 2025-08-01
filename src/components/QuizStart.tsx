@@ -25,12 +25,12 @@ export const QuizStart = ({ onStart }: QuizStartProps) => {
         <div className="grid md:grid-cols-3 gap-6 my-12">
           <div className="iq-card text-center">
             <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-            <h3 className="font-semibold mb-2">15 Минут</h3>
+            <h3 className="font-semibold mb-2">10 Минут</h3>
             <p className="text-sm text-muted-foreground">Полная оценка</p>
           </div>
           <div className="iq-card text-center">
             <Users className="w-8 h-8 text-primary mx-auto mb-3" />
-            <h3 className="font-semibold mb-2">50 вопросов</h3>
+            <h3 className="font-semibold mb-2">25 вопросов</h3>
             <p className="text-sm text-muted-foreground">Тщательно продуманный тест</p>
           </div>
           <div className="iq-card text-center">
