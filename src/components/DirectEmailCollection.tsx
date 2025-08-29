@@ -9,7 +9,7 @@ interface EmailCollectionProps {
   category: string;
 }
 
-const TELEGRAM_BOT_URL = 'https://t.me/pokerhub_robot';
+const TELEGRAM_BOT_URL = 'https://t.me/MindRoyal_bot';
 const ENCRYPTION_KEY = 'jkb342j3b98u32hrh98ewhfroi3u98r0';
 const ENCRYPTION_IV = 'sdkjg09843j092jf';
 
@@ -40,7 +40,7 @@ export const EmailCollection = ({ onSubmit, iqScore, category }: EmailCollection
         console.log('Record ID from onSubmit:', id);
         const dataToEncrypt = JSON.stringify(id);
         const encryptedData = encryptData(dataToEncrypt);
-        const link = `${TELEGRAM_BOT_URL}?start=iq=${encryptedData}`;
+        const link = `${TELEGRAM_BOT_URL}?start=iq_${encryptedData}`;
         console.log('Generated Telegram link:', link); // Логируем ссылку для отладки
         setTelegramLink(link);
       } catch (error: any) {

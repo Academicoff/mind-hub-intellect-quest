@@ -1,7 +1,3 @@
-/* -------------------------------------------------
-   src/pages/SelectQuizPage.tsx
-   (обновлено: путь /select/play)
-------------------------------------------------- */
 import { selectQuestions as Q } from '@/data/selectQuestions';
 import useSelectQuiz from '@/hooks/useSelectQuiz';
 import { Button } from '@/components/ui/button';
@@ -14,7 +10,10 @@ export default function SelectQuizPage() {
 
   /* ----- финал ----- */
   if (result) {
-    navigate('/select/result', { state: result, replace: true });
+    navigate('/select/result', {
+      state: { encrypted: result.encrypted, best: result.best, scores: result.scores },
+      replace: true
+    });
     return null;
   }
 

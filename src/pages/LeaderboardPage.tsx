@@ -71,6 +71,14 @@ export default function LeaderboardPage() {
           <CardTitle className="bg-gradient-to-r from-indigo-400 to-fuchsia-500 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent">
             📈 Таблица лидеров IQ‑теста
           </CardTitle>
+          <a
+            href="https://t.me/+KQU5N2sJOvYxMzUy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 px-6 py-3 text-lg font-semibold text-white shadow-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 ease-in-out transform hover:scale-105"
+          >
+            Вступить в ТГ-канал
+          </a>
         </CardHeader>
         <CardContent>
           {loading ? (

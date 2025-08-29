@@ -1,38 +1,41 @@
-import { useLocation, Link } from 'react-router-dom';
-import SelectBarChart from '@/components/SelectBarChart';
+import { useLocation } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 export default function SelectResultPage() {
-  const { state } = useLocation() as any;       // получаем из navigate()
+  const { state } = useLocation() as any;
 
-  if (!state) return <p className="text-center p-10">Нет данных результата</p>;
+  // Отладка
+  console.log('State:', state);
+  console.log('Encrypted:', state?.encrypted);
 
-  const { best, scores } = state as {
-    best: 'spin' | 'cash' | 'mtt';
-    scores: { spin: number; cash: number; mtt: number };
-  };
+  if (!state || !state.encrypted) {
+    return <p className="text-center p-10">Нет данных результата</p>;
+  }
 
-  const leadTexts: Record<string, string> = {
-    spin:
-      'Тебе подойдёт дисциплина Spin & Go — короткие пуш-фолд сессии и мгновенный экшен.',
-    cash:
-      'Классический кэш-покер — твоя стихия: техничность, гибкий график и стабильный EV.',
-    mtt:
-      'Ты настоящий турнирный боец! Длинные марафоны ради крупных призовых — именно твоё.',
-  };
+  const { encrypted } = state;
+  const telegramLink = `https://t.me/pokerhub_robot?start=sel_quiz=${encodeURIComponent(encrypted)}`;
+
+  console.log('Telegram Link:', telegramLink); // Отладка
 
   return (
-    <div className="max-w-2xl mx-auto p-6 text-center">
-      <h1 className="text-3xl font-bold mb-6">
-        Идеальный формат — {best.toUpperCase()}
-      </h1>
-
-      <SelectBarChart scores={scores} />
-
-      <p className="mt-8 text-lg">{leadTexts[best]}</p>
-
-      <Link to="/" className="mt-6 inline-block underline">
-        На главную
-      </Link>
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-2xl w-full text-center space-y-6">
+        <h1 className="text-2xl md:text-3xl font-bold">
+          Результат готов!
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Узнай свой идеальный формат покера в нашем Telegram-боте.
+        </p>
+        <Button
+          asChild
+          size="lg"
+          className="px-10 py-4 bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-semibold pointer-events-auto"
+        >
+          <a href={telegramLink} target="_blank" rel="noopener noreferrer">
+            Перейти в Telegram
+          </a>
+        </Button>
+      </div>
     </div>
   );
 }

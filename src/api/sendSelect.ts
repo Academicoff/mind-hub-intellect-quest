@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const base = '/api';               // proxy в .htaccess остаётся
 
-export const sendStart = (sessionId: string) =>
-  axios.post(`${base}/send-select.php`, { sessionId });
+export const sendStart = (sessionId: string, userId: string) =>
+  axios.post(`${base}/send-select.php`, { sessionId, userId });
 
 export const sendProgress = (body: any) =>
   axios.post(`${base}/send-select.php`, body);

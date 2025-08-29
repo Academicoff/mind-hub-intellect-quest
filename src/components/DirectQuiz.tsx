@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { QuizStart } from "./QuizStart";
-import { QuizQuestion } from "./QuizQuestion";
-import { EmailCollection } from "./EmailCollection";
-import { questions, calculateIQScore } from "@/data/questions";
+import { QuizStart } from "./DirectQuizStart";
+import { QuizQuestion } from "./DirectQuizQuestion";
+import { EmailCollection } from "./DirectEmailCollection";
+import { questions, calculateIQScore } from "@/data/direct_questions";
 import { QuizState, UserResult } from "@/types/quiz";
 
 export const Quiz = () => {
@@ -32,7 +32,7 @@ export const Quiz = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('id') || null; // null, если не передан
     // создаём запись на сервере
-    await fetch("/api/send-iq.php", {
+    await fetch("/api/direct-send-iq.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ sessionId, userId }),
@@ -62,7 +62,7 @@ export const Quiz = () => {
 
     // отправляем прогресс, если это НЕ последний вопрос
     if (nextIndex < questions.length) {
-      await fetch("/api/send-iq.php", {
+      await fetch("/api/direct-send-iq.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -107,7 +107,7 @@ export const Quiz = () => {
     };
 
     // отправляем финальный пакет (finished = 1)
-    const response = await fetch("/api/send-iq.php", {
+    const response = await fetch("/api/direct-send-iq.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

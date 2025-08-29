@@ -9,7 +9,11 @@ import { Layers3, Timer, Users, Trophy } from 'lucide-react';
 export default function SelectStartPage() {
   const navigate = useNavigate();
 
-  const onStart = () => navigate('/select/play');
+  const onStart = () => {
+    // Сохраняем существующие query-параметры (например, ?id=123)
+    const currentSearch = window.location.search;
+    navigate(`/select/play${currentSearch}`);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
@@ -20,8 +24,8 @@ export default function SelectStartPage() {
             <Layers3 className="w-20 h-20 text-primary" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold">
-            Какой формат покера <br className="hidden md:block" />
-            идеален для тебя?
+            Какая покерная дисциплина <br className="hidden md:block" />
+            идеально подходит тебе?
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg mx-auto">
             Ответь на&nbsp;16&nbsp;коротких вопросов и&nbsp;узнай, что подойдёт именно тебе —

@@ -40,7 +40,7 @@ export const EmailCollection = ({ onSubmit, iqScore, category }: EmailCollection
         console.log('Record ID from onSubmit:', id);
         const dataToEncrypt = JSON.stringify(id);
         const encryptedData = encryptData(dataToEncrypt);
-        const link = `${TELEGRAM_BOT_URL}?start=iq=${encryptedData}`;
+        const link = `${TELEGRAM_BOT_URL}?start=vkiq=${encryptedData}`;
         console.log('Generated Telegram link:', link); // Логируем ссылку для отладки
         setTelegramLink(link);
       } catch (error: any) {
