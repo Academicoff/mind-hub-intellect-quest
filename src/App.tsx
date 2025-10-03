@@ -10,6 +10,7 @@ import VkIndex from './pages/VkIndex';
 import NotFound from './pages/NotFound';
 import LeaderboardPage from './pages/LeaderboardPage';
 import PokerPlanets from "./pages/PokerPlanets";
+import PokerDom from "./pages/PokerDom";
 
 import SelectStartPage from './pages/SelectStartPage';
 import SelectQuizPage from './pages/SelectQuizPage';
@@ -39,6 +40,7 @@ const App = () => (
 
           {/* === Сбор данных по аффке === */}
           <Route path="/pokerplanets" element={<PokerPlanets />} />
+          <Route path="/pokerdom" element={<PokerDom />} />
 
           {/* === Лидерборд IQ === */}
           <Route path="/iq-leaderboard" element={<LeaderboardPage />} />
