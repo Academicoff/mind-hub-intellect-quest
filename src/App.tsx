@@ -15,6 +15,9 @@ import PokerDom from "./pages/PokerDom";
 import SelectStartPage from './pages/SelectStartPage';
 import SelectQuizPage from './pages/SelectQuizPage';
 import SelectResultPage from './pages/SelectResultPage';
+import SpinStartPage from './pages/SpinStartPage';
+import SpinQuizPage from './pages/SpinQuizPage';
+import SpinResultPage from './pages/SpinResultPage';
 
 
 const queryClient = new QueryClient();
@@ -37,6 +40,11 @@ const App = () => (
           <Route path="/select" element={<SelectStartPage />} />
           <Route path="/select/play" element={<SelectQuizPage />} />
           <Route path="/select/result" element={<SelectResultPage />} />
+
+          {/* === Spin-квиз === */}
+          <Route path="/spin" element={<SpinStartPage />} />
+          <Route path="/spinquiz" element={<SpinQuizPage />} />
+          <Route path="/spin/result" element={<SpinResultPage />} />
 
           {/* === Сбор данных по аффке === */}
           <Route path="/pokerplanets" element={<PokerPlanets />} />
